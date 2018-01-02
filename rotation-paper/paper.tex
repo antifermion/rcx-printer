@@ -1,0 +1,18 @@
+\documentclass[border=5mm]{standalone}
+\usepackage{tikz}
+
+\begin{document}
+
+\newcommand{\Arc}[2]{\draw [black,thick,domain=#1:#2,line width=3cm] plot ({3.2*cos(\x)}, {3.2*sin(\x)});}
+\newcommand{\stripes}{8}
+
+\begin{tikzpicture}
+\clip (0,0) circle (32mm);
+\foreach \i in {0,...,\stripes} {
+	\Arc{360/\stripes*2*\i}{360/\stripes*(2*\i + 1)}
+}
+\draw (0,0) circle (32mm);
+\draw (0,0) circle (8mm);
+\draw (-0.65, -0.65) rectangle (0.65, 0.65);
+\end{tikzpicture}
+\end{document}
